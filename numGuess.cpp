@@ -55,7 +55,7 @@ void numGuess(){
         }
     }
     cout << "Please write down 5 seperate digits between 0 and 9." << endl << "I will show a list of numbers" << endl << "and you tell me how many numbers I got in the right position." << endl;
-    int numRight;
+    int numRight=0;
     int guesses = 0;
     while(numRight<5){
         guesses++;
@@ -84,6 +84,10 @@ void numGuess(){
         cin >> numRight;
         if (numRight<5){
             left -= reduceChoices(choices,numRight,n,ran);
+            if (left<=0){
+                cout << "Are you sure? Maybe try it again." << endl;
+                return;
+            }
         } else {
 
         }
